@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwivhfedqe3ne"]
+
+[ext_resource type="Texture2D" uid="uid://ceaaed116xxyc" path="res://assets/backgrounds/bkgd-dungeon.png" id="1_sb1lh"]
+
+[node name="main" type="Node2D"]
+
+[node name="Bkgd-dungeon" type="Sprite2D" parent="."]
+position = Vector2(577, 329)
+scale = Vector2(0.601042, 0.605556)
+texture = ExtResource("1_sb1lh")
