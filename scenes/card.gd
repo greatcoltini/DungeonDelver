@@ -36,3 +36,7 @@ func _on_texture_button_mouse_exited():
 	for i in card_hand.size():
 		card_hand[i].z_index = prior_z_index[i]
 		card_hand[i].scale = Vector2(1.0, 1.0)
+
+
+func _on_texture_button_pressed():
+	DeckScript.play_card(self)

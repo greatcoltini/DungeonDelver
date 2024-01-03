@@ -22,8 +22,8 @@ _data = {
 "idle": SubResource("Animation_tt3j7")
 }
 
-[node name="hand" type="Node2D"]
-position = Vector2(0, 4)
+[node name="hand" type="Node2D" groups=["hand"]]
+position = Vector2(0, 0.363636)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
