@@ -4,6 +4,8 @@ var card_name
 var card_hand = []
 var prior_z_index = []
 
+@onready var anim = $AnimationPlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -39,4 +41,8 @@ func _on_texture_button_mouse_exited():
 
 
 func _on_texture_button_pressed():
-	DeckScript.play_card(self)
+	anim.play("use")
+
+
+func _on_animation_player_animation_finished(anim_name):
+	DeckScript.play_card(self) # Replace with function body.
