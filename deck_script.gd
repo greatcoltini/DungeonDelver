@@ -2,7 +2,7 @@ extends Node
 
 # variables
 var hand = preload("res://scenes/hand.tscn").instantiate()
-var deck = ["card-burgle", "card-mercenary", "card-move-silent", "card-stumb", "card-mercenary"]
+var deck = ["card-burgle", "card-mercenary", "card-move-silent", "card-stumb", "card-mercenary", "card-burgle", "card-mercenary", "card-move-silent", "card-stumb", "card-mercenary"]
 var discard = []
 var card = preload("res://scenes/card.tscn")
 var held_cards = 0
@@ -31,18 +31,28 @@ func shuffle_and_deal():
 		held_cards += 1
 	
 func _process(delta):
+	print(find_held_cards())
 	if find_held_cards() == 0:
-		shuffle_and_deal()
+		if deck == []:
+			pass
+		else:
+			shuffle_and_deal()
 		
 func find_held_cards():
 	held_cards = 0
 	for child in hand.get_children():
 		if child.is_in_group("card"):
 			held_cards += 1
+	return held_cards
 			
 func play_card(card):
 	hand.remove_child(card)
+	position_cards()
 	
 func position_cards():
-	find_held_cards()
+	var card_counter = 0
+	for child in hand.get_children():
+		if child.is_in_group("card"):
+			child.position = Vector2(284 + (100 * card_counter), 400)
+			card_counter += 1
 	
