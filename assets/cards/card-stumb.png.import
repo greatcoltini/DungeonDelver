@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ck2vopkuuj747"
-path="res://.godot/imported/card-3-mercenary.png-fab3c3b72eaf61e73e1d4539996f4f8b.ctex"
+uid="uid://b7kkuxx7fa8th"
+path="res://.godot/imported/card-stumb.png-a9708baa30361ea3cc66348d77f82e52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/card-3-mercenary.png"
-dest_files=["res://.godot/imported/card-3-mercenary.png-fab3c3b72eaf61e73e1d4539996f4f8b.ctex"]
+source_file="res://assets/cards/card-stumb.png"
+dest_files=["res://.godot/imported/card-stumb.png-a9708baa30361ea3cc66348d77f82e52.ctex"]
 
 [params]
 

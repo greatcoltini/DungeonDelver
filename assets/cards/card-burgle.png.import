@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7kkuxx7fa8th"
-path="res://.godot/imported/card-1-stumb.png-f9bde16607c72b6b21775ebbd3c35645.ctex"
+uid="uid://t5843wxy4ofy"
+path="res://.godot/imported/card-burgle.png-5ef0983022c786a47b30b6e6bec9c26e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/card-1-stumb.png"
-dest_files=["res://.godot/imported/card-1-stumb.png-f9bde16607c72b6b21775ebbd3c35645.ctex"]
+source_file="res://assets/cards/card-burgle.png"
+dest_files=["res://.godot/imported/card-burgle.png-5ef0983022c786a47b30b6e6bec9c26e.ctex"]
 
 [params]
 

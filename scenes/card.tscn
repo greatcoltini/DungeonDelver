@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://br3molwpwndf6"]
+
+[ext_resource type="Script" path="res://scenes/card.gd" id="1_1q53d"]
+[ext_resource type="Texture2D" uid="uid://b7kkuxx7fa8th" path="res://assets/cards/card-stumb.png" id="2_om237"]
+
+[node name="card" type="Node2D" groups=["card"]]
+script = ExtResource("1_1q53d")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+toggle_mode = true
+texture_normal = ExtResource("2_om237")
