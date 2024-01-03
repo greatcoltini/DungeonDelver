@@ -1,7 +1,6 @@
 extends Node2D
 
-const NAME = "card-stumb"
-
+var card_name
 var card_hand = []
 var prior_z_index = []
 
@@ -17,6 +16,7 @@ func _process(delta):
 
 func set_texture(text):
 	$TextureButton.texture_normal = load("res://assets/cards/" + text + ".png")
+	card_name = text
 
 
 func _on_texture_button_mouse_entered():

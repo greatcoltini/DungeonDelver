@@ -19,7 +19,7 @@ corner_radius_bottom_right = 10
 offset_right = 96.0
 offset_bottom = 27.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_1yaof")
-value = 50.0
+value = 100.0
 
 [node name="staminabar" type="ProgressBar" parent="PlayerResources"]
 offset_top = 27.0
