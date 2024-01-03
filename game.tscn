@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwivhfedqe3ne"]
+[gd_scene load_steps=7 format=3 uid="uid://cwivhfedqe3ne"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_4dy6b"]
 [ext_resource type="Texture2D" uid="uid://ceaaed116xxyc" path="res://assets/backgrounds/bkgd-dungeon.png" id="1_sb1lh"]
 [ext_resource type="PackedScene" uid="uid://dmtpv82hv5ngh" path="res://scenes/user_interface.tscn" id="2_yp53u"]
 [ext_resource type="PackedScene" uid="uid://br3molwpwndf6" path="res://scenes/card.tscn" id="3_hh8pf"]
+[ext_resource type="PackedScene" uid="uid://dnynukcujxmd3" path="res://scenes/hand.tscn" id="4_qj66o"]
+[ext_resource type="Script" path="res://scenes/hand.gd" id="5_f4tw7"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_4dy6b")
@@ -15,14 +17,18 @@ texture = ExtResource("1_sb1lh")
 
 [node name="UserInterface" parent="." instance=ExtResource("2_yp53u")]
 
-[node name="card" parent="." instance=ExtResource("3_hh8pf")]
+[node name="hand" parent="." instance=ExtResource("4_qj66o")]
+script = ExtResource("5_f4tw7")
+
+[node name="card" parent="hand" instance=ExtResource("3_hh8pf")]
 position = Vector2(290, 467)
 rotation = -0.30898
 
-[node name="card2" parent="." instance=ExtResource("3_hh8pf")]
+[node name="card2" parent="hand" instance=ExtResource("3_hh8pf")]
 position = Vector2(423, 417)
 rotation = 0.00368696
 
-[node name="card3" parent="." instance=ExtResource("3_hh8pf")]
+[node name="card3" parent="hand" instance=ExtResource("3_hh8pf")]
 position = Vector2(556, 410)
 rotation = 0.188397
+scale = Vector2(1, 1)
