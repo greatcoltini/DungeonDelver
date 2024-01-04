@@ -20,4 +20,4 @@ func _on_mouse_exited():
 
 
 func _on_pressed():
-	pass # Replace with function body.
+	get_parent().traverse_room() # Replace with function body.
