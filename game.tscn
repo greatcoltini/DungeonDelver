@@ -134,10 +134,10 @@ text = "Risk|Reward: 0"
 fit_content = true
 
 [node name="loot" type="RichTextLabel" parent="."]
-offset_left = 99.0
-offset_top = 7.0
-offset_right = 305.0
-offset_bottom = 32.0
+offset_left = 112.0
+offset_top = 11.0
+offset_right = 318.0
+offset_bottom = 36.0
 scale = Vector2(1.44322, 1.46854)
 fit_content = true
 

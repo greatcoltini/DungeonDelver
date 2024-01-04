@@ -43,8 +43,9 @@ func _on_animation_player_animation_finished(anim_name):
 		enter_new()
 		
 func burgle_loot():
-	loot = randi_range(5, 10)
+	var temp_loot = randi_range(5, 10)
+	loot += temp_loot
 	var lt = visual_loot_gain.instantiate()
-	lt.text = str(loot)
+	lt.text = "+" + str(temp_loot) + "!"
 	add_child(lt)
 	

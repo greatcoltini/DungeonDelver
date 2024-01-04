@@ -40,7 +40,8 @@ func _process(delta):
 	if find_held_cards() == 0:
 		if deck.size() <= HAND_SIZE:
 			visible_deck.anim.play("empty_deck")
-			shuffle_and_deal()
+			if deck != []:
+				shuffle_and_deal()
 		else:
 			visible_deck.visible = true
 			shuffle_and_deal()
