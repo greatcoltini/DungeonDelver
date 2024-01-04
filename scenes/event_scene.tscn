@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7uh5pcxmm5nx"]
+
+[ext_resource type="Texture2D" uid="uid://c7cismfo0ox5p" path="res://assets/templates/skeleton-event.jpg" id="1_u1f7m"]
+[ext_resource type="Texture2D" uid="uid://drvl70pt8gwmw" path="res://assets/potential-use/by-sungraphica/empty-button-dark.png" id="2_ijfvm"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(351, 201)
+texture = ExtResource("1_u1f7m")
+
+[node name="eventdesc" type="RichTextLabel" parent="."]
+offset_left = 222.0
+offset_top = 45.0
+offset_right = 521.0
+offset_bottom = 222.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Upon entering the room, you perceive a skeleton hanging from a corridor.
+
+What do you do?"
+
+[node name="option1" type="TextureButton" parent="."]
+offset_left = 30.0
+offset_top = 318.0
+offset_right = 410.0
+offset_bottom = 389.0
+scale = Vector2(0.477133, 0.624468)
+texture_normal = ExtResource("2_ijfvm")
+
+[node name="optionlabel" type="RichTextLabel" parent="option1"]
+layout_mode = 0
+offset_left = 16.7668
+offset_top = 22.4191
+offset_right = 366.767
+offset_bottom = 65.4191
+theme_override_font_sizes/normal_font_size = 16
+text = "CUT THE SKELETON LOOSE USING A SWORD"
+fit_content = true
+scroll_active = false
+
+[node name="option2" type="TextureButton" parent="."]
+offset_left = 249.0
+offset_top = 319.0
+offset_right = 629.0
+offset_bottom = 390.0
+scale = Vector2(0.477133, 0.624468)
+texture_normal = ExtResource("2_ijfvm")
+
+[node name="optionlabel" type="RichTextLabel" parent="option2"]
+offset_left = 77.5465
+offset_top = 22.419
+offset_right = 427.547
+offset_bottom = 65.419
+theme_override_font_sizes/normal_font_size = 16
+text = "IGNORE THE SKELETON"
+fit_content = true
+scroll_active = false
+
+[node name="option3" type="TextureButton" parent="."]
+offset_left = 479.0
+offset_top = 319.0
+offset_right = 859.0
+offset_bottom = 390.0
+scale = Vector2(0.477133, 0.624468)
+texture_normal = ExtResource("2_ijfvm")
+
+[node name="optionlabel" type="RichTextLabel" parent="option3"]
+offset_left = 73.3547
+offset_top = 19.2163
+offset_right = 423.355
+offset_bottom = 62.2163
+theme_override_font_sizes/normal_font_size = 16
+text = "GET A CLOSER LOOK..."
+fit_content = true
+scroll_active = false

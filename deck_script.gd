@@ -7,6 +7,9 @@ var discard = []
 var card = preload("res://scenes/card.tscn")
 var held_cards = 0
 var readied = true
+var main
+
+var visible_deck
 
 # constants
 const HAND_SIZE = 5
@@ -15,7 +18,9 @@ const HAND_SIZE = 5
 
 func initialize():	
 	hand.position = Vector2(584, 551)
-	get_tree().get_first_node_in_group("main").add_child(hand)
+	main = get_tree().get_first_node_in_group("main")
+	main.add_child(hand)
+	visible_deck = get_tree().get_first_node_in_group("UI").get_node("deck")
 	
 	shuffle_and_deal()
 	
@@ -33,9 +38,11 @@ func shuffle_and_deal():
 	
 func _process(delta):
 	if find_held_cards() == 0:
-		if deck == []:
-			pass
+		if deck.size() <= HAND_SIZE:
+			visible_deck.anim.play("empty_deck")
+			shuffle_and_deal()
 		else:
+			visible_deck.visible = true
 			shuffle_and_deal()
 			
 func _input(event):
@@ -54,7 +61,14 @@ func find_held_cards():
 	return held_cards
 			
 func play_card(card):
+	#ugly way to do actions, but we start here
+	if card.card_name == "card-burgle":
+		main.burgle_loot()
+		
 	hand.remove_child(card)
+	
+	
+	
 	position_cards()
 	
 # Function that positions the player cards

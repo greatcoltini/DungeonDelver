@@ -1,4 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmtpv82hv5ngh"]
+[gd_scene load_steps=7 format=3 uid="uid://dmtpv82hv5ngh"]
+
+[ext_resource type="Texture2D" uid="uid://vc60nkqvg588" path="res://assets/cards/card_back.jpg" id="1_7utpn"]
+[ext_resource type="Script" path="res://scenes/visible_deck.gd" id="1_r7ae4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1yaof"]
 bg_color = Color(0.588235, 0.0117647, 0.32549, 1)
@@ -10,6 +13,75 @@ corner_detail = 15
 bg_color = Color(0.756863, 0.560784, 0.219608, 1)
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
+
+[sub_resource type="Animation" id="Animation_wt78e"]
+resource_name = "empty_deck"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("5:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("4:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("1:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.9, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a3mxq"]
+_data = {
+"empty_deck": SubResource("Animation_wt78e")
+}
 
 [node name="UserInterface" type="CanvasLayer"]
 
@@ -27,3 +99,48 @@ offset_right = 96.0
 offset_bottom = 54.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_gwij4")
 value = 100.0
+
+[node name="deck" type="Node2D" parent="."]
+script = ExtResource("1_r7ae4")
+
+[node name="1" type="Sprite2D" parent="deck"]
+position = Vector2(45.0159, 592.187)
+rotation = -0.0139626
+scale = Vector2(0.355, 0.355)
+skew = -0.153589
+texture = ExtResource("1_7utpn")
+
+[node name="2" type="Sprite2D" parent="deck"]
+position = Vector2(50.0159, 591.187)
+rotation = -0.0139626
+scale = Vector2(0.355, 0.355)
+skew = -0.153589
+texture = ExtResource("1_7utpn")
+
+[node name="3" type="Sprite2D" parent="deck"]
+position = Vector2(56.0159, 590.187)
+rotation = -0.0139626
+scale = Vector2(0.355, 0.355)
+skew = -0.153589
+texture = ExtResource("1_7utpn")
+
+[node name="4" type="Sprite2D" parent="deck"]
+position = Vector2(61.0159, 590.187)
+rotation = -0.0139626
+scale = Vector2(0.355, 0.355)
+skew = -0.153589
+texture = ExtResource("1_7utpn")
+
+[node name="5" type="Sprite2D" parent="deck"]
+position = Vector2(67, 590)
+rotation = -0.0139626
+scale = Vector2(0.355, 0.355)
+skew = -0.153589
+texture = ExtResource("1_7utpn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="deck"]
+libraries = {
+"": SubResource("AnimationLibrary_a3mxq")
+}
+
+[connection signal="animation_finished" from="deck/AnimationPlayer" to="deck" method="_on_animation_player_animation_finished"]
