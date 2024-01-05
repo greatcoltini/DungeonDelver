@@ -1,0 +1,15 @@
+{
+	"event_name": "Skeleton",
+	"event_description": "Upon entering the room, you perceive a skeleton hanging from a corridor. \n\n What do you do?",
+	"event_option_1": {
+		"optionlabel": "CUT THE SKELETON LOOSE"
+	},
+	"event_option_2": {
+		"optionlabel": "IGNORE THE SKELETON"
+	},
+	"event_option_3": {
+		"optionlabel": "GET A CLOSER LOOK...",
+		"health": -25,
+		"loot": 25
+	}
+}

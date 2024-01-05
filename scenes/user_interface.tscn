@@ -10,7 +10,7 @@ corner_radius_bottom_right = 10
 corner_detail = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwij4"]
-bg_color = Color(0.756863, 0.560784, 0.219608, 1)
+bg_color = Color(0.756863, 0.611765, 0.219608, 1)
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 
@@ -90,6 +90,7 @@ _data = {
 [node name="healthbar" type="ProgressBar" parent="PlayerResources"]
 offset_right = 96.0
 offset_bottom = 27.0
+tooltip_text = "Health remaining"
 theme_override_styles/fill = SubResource("StyleBoxFlat_1yaof")
 value = 100.0
 
@@ -97,7 +98,17 @@ value = 100.0
 offset_top = 27.0
 offset_right = 96.0
 offset_bottom = 54.0
+tooltip_text = "Movement remaining"
 theme_override_styles/fill = SubResource("StyleBoxFlat_gwij4")
+value = 100.0
+
+[node name="lightbar" type="ProgressBar" parent="PlayerResources"]
+offset_left = 1.0
+offset_top = 54.0
+offset_right = 95.0
+offset_bottom = 81.0
+tooltip_text = "Light remaining"
+min_value = 100.0
 value = 100.0
 
 [node name="deck" type="Node2D" parent="."]
