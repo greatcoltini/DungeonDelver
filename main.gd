@@ -38,13 +38,14 @@ func generate_loot_quota():
 func traverse_room():
 	button.visible = false
 	hand.visible = false;
+	player.change_property(-25, "light")
+	lightcover.modulate = Color(0, 0, 0, (100 - player.stats["light"]) / 200)
 	camera.get_child(0).play("traverse")
 	manager.generate_new_room()
 	
 func enter_new():
-	player.change_property(-25, "light")
 	if player.stats["light"] > 0:
-		lightcover.modulate = Color(0, 0, 0, player.stats["light"] / 50)
+		
 		hand.visible = true
 		button.visible = true
 
