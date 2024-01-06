@@ -39,7 +39,7 @@ func traverse_room():
 	button.visible = false
 	hand.visible = false;
 	player.change_property(-25, "light")
-	lightcover.modulate = Color(0, 0, 0, (100 - player.stats["light"]) / 200)
+	lightcover.modulate = Color(0, 0, 0, (100 - player.stats["light"]) / 100.5)
 	camera.get_child(0).play("traverse")
 	manager.generate_new_room()
 	

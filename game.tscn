@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwivhfedqe3ne"]
+[gd_scene load_steps=19 format=3 uid="uid://cwivhfedqe3ne"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_4dy6b"]
 [ext_resource type="Texture2D" uid="uid://ceaaed116xxyc" path="res://assets/backgrounds/bkgd-dungeon.png" id="1_sb1lh"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bv6y810yy7spc" path="res://assets/potential-use/by-sungraphica/continue.png" id="4_6xsqr"]
 [ext_resource type="Script" path="res://ContinueButton.gd" id="5_xtrwl"]
 [ext_resource type="Texture2D" uid="uid://yxenf0oubyj4" path="res://assets/backgrounds/cover.png" id="6_ugxgb"]
+[ext_resource type="Texture2D" uid="uid://b2wrimq1hiv8x" path="res://data/events/torch.png" id="7_ft7qy"]
+[ext_resource type="Texture2D" uid="uid://xf88yvy1a15q" path="res://assets/light-2.webp" id="8_jwiss"]
 
 [sub_resource type="Animation" id="Animation_sks3b"]
 resource_name = "traverse"
@@ -79,6 +81,56 @@ _data = {
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1rwwp"]
 texture = ExtResource("6_ugxgb")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ae18"]
+atlas = ExtResource("7_ft7qy")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbdl3"]
+atlas = ExtResource("7_ft7qy")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tygd4"]
+atlas = ExtResource("7_ft7qy")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ehxk"]
+atlas = ExtResource("7_ft7qy")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6vax"]
+atlas = ExtResource("7_ft7qy")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20fut"]
+atlas = ExtResource("7_ft7qy")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2eql7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ae18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbdl3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tygd4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ehxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6vax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20fut")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="main" type="Node2D" groups=["main"]]
 script = ExtResource("1_4dy6b")
 
@@ -149,6 +201,18 @@ offset_right = 318.0
 offset_bottom = 36.0
 scale = Vector2(1.44322, 1.46854)
 fit_content = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(164, 563)
+scale = Vector2(11.5241, 10.8659)
+sprite_frames = SubResource("SpriteFrames_2eql7")
+autoplay = "default"
+
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(-0.867752, -3.5892)
+scale = Vector2(0.28178, 0.235469)
+color = Color(1, 1, 0, 1)
+texture = ExtResource("8_jwiss")
 
 [connection signal="mouse_entered" from="TextureButton" to="TextureButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="TextureButton" to="TextureButton" method="_on_mouse_exited"]
