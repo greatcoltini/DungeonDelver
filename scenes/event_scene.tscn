@@ -47,6 +47,7 @@ scale = Vector2(0.477133, 0.624468)
 texture_normal = ExtResource("2_ijfvm")
 
 [node name="optionlabel" type="RichTextLabel" parent="option2"]
+layout_mode = 0
 offset_left = 77.5465
 offset_top = 22.419
 offset_right = 427.547
@@ -65,6 +66,7 @@ scale = Vector2(0.477133, 0.624468)
 texture_normal = ExtResource("2_ijfvm")
 
 [node name="optionlabel" type="RichTextLabel" parent="option3"]
+layout_mode = 0
 offset_left = 73.3547
 offset_top = 19.2163
 offset_right = 423.355

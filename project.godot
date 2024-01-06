@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://game_manager.gd"
 DeckScript="*res://deck_script.gd"
+Player="*res://player.gd"
 
 [input]
 

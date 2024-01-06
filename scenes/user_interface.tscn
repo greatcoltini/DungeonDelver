@@ -87,14 +87,14 @@ _data = {
 
 [node name="PlayerResources" type="Node2D" parent="."]
 
-[node name="healthbar" type="ProgressBar" parent="PlayerResources"]
+[node name="healthbar" type="ProgressBar" parent="PlayerResources" groups=["health"]]
 offset_right = 96.0
 offset_bottom = 27.0
 tooltip_text = "Health remaining"
 theme_override_styles/fill = SubResource("StyleBoxFlat_1yaof")
 value = 100.0
 
-[node name="staminabar" type="ProgressBar" parent="PlayerResources"]
+[node name="staminabar" type="ProgressBar" parent="PlayerResources" groups=["stamina"]]
 offset_top = 27.0
 offset_right = 96.0
 offset_bottom = 54.0
@@ -102,13 +102,12 @@ tooltip_text = "Movement remaining"
 theme_override_styles/fill = SubResource("StyleBoxFlat_gwij4")
 value = 100.0
 
-[node name="lightbar" type="ProgressBar" parent="PlayerResources"]
+[node name="lightbar" type="ProgressBar" parent="PlayerResources" groups=["light"]]
 offset_left = 1.0
 offset_top = 54.0
 offset_right = 95.0
 offset_bottom = 81.0
 tooltip_text = "Light remaining"
-min_value = 100.0
 value = 100.0
 
 [node name="deck" type="Node2D" parent="."]
