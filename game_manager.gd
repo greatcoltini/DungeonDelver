@@ -29,13 +29,21 @@ func generate_new_room():
 	load_event(current_event)
 	
 	
-# function that loads the event and the json, applies the stuff
 func load_event(event):
 	var cur_event_instance = event_instance.instantiate()
 	
-	var json = JSON.new()
-	var json_string = "res://data/events/" + event + "-event.json"
-	var parse_res = json.parse(json_string)
-	var data = json.get_data()
+	var json_path = "res://data/events/" + event + "-event.json"
 	
-	print(parse_res)
+	var file = FileAccess.open(json_path, FileAccess.READ)
+	
+	var content = file.get_as_text()
+
+	var json = JSON.new()
+	# Try to parse the JSON file
+	var parse_res = json.parse_string(content)
+
+	# Your further processing with the parsed data
+	print("JSON parsing successful:", parse_res)
+	
+	print(parse_res["event_name"])
+
