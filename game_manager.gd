@@ -29,6 +29,7 @@ func generate_new_room():
 	load_event(current_event)
 	
 	
+	
 func load_event(event):
 	var cur_event_instance = event_instance.instantiate()
 	
@@ -46,4 +47,11 @@ func load_event(event):
 	print("JSON parsing successful:", parse_res)
 	
 	print(parse_res["event_name"])
+	
+	cur_event_instance.get_node("eventdesc").text = parse_res["event_description"]
+	cur_event_instance.get_node("option1").get_node("optionlabel").text = parse_res["event_option_1"]["optionlabel"]
+	cur_event_instance.get_node("option2").get_node("optionlabel").text = parse_res["event_option_2"]["optionlabel"]
+	cur_event_instance.get_node("option3").get_node("optionlabel").text = parse_res["event_option_3"]["optionlabel"]
+	
+	get_tree().root.add_child(cur_event_instance)
 

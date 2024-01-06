@@ -1,11 +1,11 @@
 {
-	"event_name": "Skeleton",
-	"event_description": "Upon entering the room, you perceive a skeleton hanging from a corridor. \n\n What do you do?",
+	"event_name": "Loot",
+	"event_description": "You see a chest full of gold in the center of the corridor. What do you do?",
 	"event_option_1": {
-		"optionlabel": "CUT THE SKELETON LOOSE"
+		"optionlabel": "OPEN THE CHEST"
 	},
 	"event_option_2": {
-		"optionlabel": "IGNORE THE SKELETON"
+		"optionlabel": "IGNORE THE CHEST"
 	},
 	"event_option_3": {
 		"optionlabel": "GET A CLOSER LOOK...",
