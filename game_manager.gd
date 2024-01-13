@@ -4,7 +4,7 @@ extends Node
 var event_instance = preload("res://scenes/event_scene.tscn")
 
 var level;
-var risk = 0
+var risk = 1
 var cards = []
 var deck;
 
@@ -20,10 +20,10 @@ var event_deck = []
 # room event generation
 func generate_new_room():
 	# if we have some level of risk, let's create chance for monsters
-	if risk >= 0:
+	if risk >= 1:
 		event_deck.append(monster_events.pick_random())
-	else:
-		event_deck.append(events.pick_random())
+	
+	event_deck.append(events.pick_random())
 	
 	current_event = event_deck.pick_random()
 	load_event(current_event)

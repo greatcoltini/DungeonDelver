@@ -25,7 +25,6 @@ _data = {
 }
 
 [node name="Node2D" type="Node2D" groups=["eventscene"]]
-modulate = Color(1, 1, 1, 0)
 position = Vector2(215, 73)
 script = ExtResource("1_ab77b")
 
@@ -44,11 +43,13 @@ text = "Upon entering the room, you perceive a skeleton hanging from a corridor.
 What do you do?"
 
 [node name="option1" type="TextureButton" parent="."]
-offset_left = 30.0
-offset_top = 318.0
-offset_right = 410.0
-offset_bottom = 389.0
-scale = Vector2(0.477133, 0.624468)
+top_level = true
+offset_left = 229.0
+offset_top = 376.0
+offset_right = 609.0
+offset_bottom = 447.0
+scale = Vector2(0.574493, 0.924734)
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_ijfvm")
 
 [node name="optionlabel" type="RichTextLabel" parent="option1"]
@@ -57,17 +58,19 @@ offset_left = 16.7668
 offset_top = 22.4191
 offset_right = 366.767
 offset_bottom = 65.4191
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 16
 text = "CUT THE SKELETON LOOSE USING A SWORD"
 fit_content = true
 scroll_active = false
 
 [node name="option2" type="TextureButton" parent="."]
-offset_left = 249.0
-offset_top = 319.0
-offset_right = 629.0
-offset_bottom = 390.0
-scale = Vector2(0.477133, 0.624468)
+offset_left = 244.0
+offset_top = 309.0
+offset_right = 624.0
+offset_bottom = 380.0
+scale = Vector2(0.551325, 0.838006)
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_ijfvm")
 
 [node name="optionlabel" type="RichTextLabel" parent="option2"]
@@ -76,17 +79,19 @@ offset_left = 77.5465
 offset_top = 22.419
 offset_right = 427.547
 offset_bottom = 65.419
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 16
 text = "IGNORE THE SKELETON"
 fit_content = true
 scroll_active = false
 
 [node name="option3" type="TextureButton" parent="."]
-offset_left = 479.0
-offset_top = 319.0
-offset_right = 859.0
-offset_bottom = 390.0
-scale = Vector2(0.477133, 0.624468)
+top_level = true
+offset_left = 682.0
+offset_top = 383.0
+offset_right = 1062.0
+offset_bottom = 454.0
+scale = Vector2(0.568736, 0.775704)
 texture_normal = ExtResource("2_ijfvm")
 
 [node name="optionlabel" type="RichTextLabel" parent="option3"]
@@ -95,6 +100,7 @@ offset_left = 73.3547
 offset_top = 19.2163
 offset_right = 423.355
 offset_bottom = 62.2163
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 16
 text = "GET A CLOSER LOOK..."
 fit_content = true

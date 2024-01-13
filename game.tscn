@@ -1,13 +1,39 @@
-[gd_scene load_steps=19 format=3 uid="uid://cwivhfedqe3ne"]
+[gd_scene load_steps=34 format=3 uid="uid://cwivhfedqe3ne"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_4dy6b"]
 [ext_resource type="Texture2D" uid="uid://ceaaed116xxyc" path="res://assets/backgrounds/bkgd-dungeon.png" id="1_sb1lh"]
 [ext_resource type="PackedScene" uid="uid://dmtpv82hv5ngh" path="res://scenes/user_interface.tscn" id="2_yp53u"]
-[ext_resource type="Texture2D" uid="uid://bv6y810yy7spc" path="res://assets/potential-use/by-sungraphica/continue.png" id="4_6xsqr"]
+[ext_resource type="Texture2D" uid="uid://daon88ay156hh" path="res://assets/hand drawn/button-continue-sheet.png" id="5_rv3cr"]
 [ext_resource type="Script" path="res://ContinueButton.gd" id="5_xtrwl"]
 [ext_resource type="Texture2D" uid="uid://yxenf0oubyj4" path="res://assets/backgrounds/cover.png" id="6_ugxgb"]
 [ext_resource type="Texture2D" uid="uid://b2wrimq1hiv8x" path="res://assets/torch.png" id="7_evh1b"]
+[ext_resource type="Texture2D" uid="uid://dmyolaihtnylx" path="res://assets/empty_torch.png" id="8_eupeb"]
 [ext_resource type="Texture2D" uid="uid://xf88yvy1a15q" path="res://assets/light-2.webp" id="8_jwiss"]
+[ext_resource type="Texture2D" uid="uid://b52rsllvnnwe0" path="res://assets/torch_drain.png" id="8_x1oav"]
+[ext_resource type="Script" path="res://torch_script.gd" id="10_xysep"]
+[ext_resource type="Script" path="res://ReturnButton.gd" id="12_ukkl1"]
+[ext_resource type="Texture2D" uid="uid://kv1sxmw4mg3f" path="res://assets/hand drawn/button-return-home.png" id="13_4tg7o"]
+[ext_resource type="Texture2D" uid="uid://b6nxp3gauph7e" path="res://assets/hand drawn/button-return-home-hover.png" id="13_ck88l"]
+
+[sub_resource type="Animation" id="Animation_shwy8"]
+resource_name = "disable"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m0ncb"]
+_data = {
+"disable": SubResource("Animation_shwy8")
+}
 
 [sub_resource type="Animation" id="Animation_sks3b"]
 resource_name = "traverse"
@@ -105,6 +131,26 @@ region = Rect2(64, 0, 16, 16)
 atlas = ExtResource("7_evh1b")
 region = Rect2(80, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fwmp"]
+atlas = ExtResource("8_x1oav")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbtgj"]
+atlas = ExtResource("8_x1oav")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfga3"]
+atlas = ExtResource("8_x1oav")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_siyvr"]
+atlas = ExtResource("8_x1oav")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yckd7"]
+atlas = ExtResource("8_eupeb")
+region = Rect2(0, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_2eql7"]
 animations = [{
 "frames": [{
@@ -129,7 +175,52 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fwmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbtgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfga3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_siyvr")
+}],
+"loop": false,
+"name": &"drain",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yckd7")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_15pkd"]
+resource_name = "spawn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(468, 280), Vector2(468, 363), Vector2(468, 343), Vector2(468, 353), Vector2(468, 348), Vector2(468, 350)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ai037"]
+_data = {
+"spawn": SubResource("Animation_15pkd")
+}
 
 [node name="main" type="Node2D" groups=["main"]]
 script = ExtResource("1_4dy6b")
@@ -141,24 +232,23 @@ texture = ExtResource("1_sb1lh")
 
 [node name="UserInterface" parent="." groups=["UI"] instance=ExtResource("2_yp53u")]
 
-[node name="TextureButton" type="TextureButton" parent="."]
-offset_left = 489.0
-offset_top = 120.0
-offset_right = 869.0
-offset_bottom = 191.0
-scale = Vector2(0.40183, 0.440499)
-texture_normal = ExtResource("4_6xsqr")
+[node name="ContinueButton" type="TextureButton" parent="."]
+z_index = 2
+offset_left = 469.0
+offset_top = 283.0
+offset_right = 659.0
+offset_bottom = 343.0
 script = ExtResource("5_xtrwl")
 
-[node name="TextureButton" type="TextureButton" parent="TextureButton"]
-layout_mode = 0
-offset_left = 1251.77
-offset_top = 996.598
-offset_right = 1631.77
-offset_bottom = 1067.6
-scale = Vector2(0.924393, 1.2325)
-texture_normal = ExtResource("4_6xsqr")
-script = ExtResource("5_xtrwl")
+[node name="Sprite2D" type="Sprite2D" parent="ContinueButton"]
+position = Vector2(94, 29)
+texture = ExtResource("5_rv3cr")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ContinueButton"]
+libraries = {
+"": SubResource("AnimationLibrary_m0ncb")
+}
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(574, 327)
@@ -206,7 +296,9 @@ fit_content = true
 position = Vector2(164, 563)
 scale = Vector2(11.5241, 10.8659)
 sprite_frames = SubResource("SpriteFrames_2eql7")
+animation = &"drain"
 autoplay = "default"
+script = ExtResource("10_xysep")
 
 [node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
 position = Vector2(-0.867752, -3.5892)
@@ -214,10 +306,26 @@ scale = Vector2(0.28178, 0.235469)
 color = Color(1, 1, 0, 1)
 texture = ExtResource("8_jwiss")
 
-[connection signal="mouse_entered" from="TextureButton" to="TextureButton" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="TextureButton" to="TextureButton" method="_on_mouse_exited"]
-[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
-[connection signal="mouse_entered" from="TextureButton/TextureButton" to="TextureButton/TextureButton" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="TextureButton/TextureButton" to="TextureButton/TextureButton" method="_on_mouse_exited"]
-[connection signal="pressed" from="TextureButton/TextureButton" to="TextureButton/TextureButton" method="_on_pressed"]
+[node name="ReturnButton" type="TextureButton" parent="."]
+visible = false
+offset_left = 468.0
+offset_top = 281.0
+offset_right = 658.0
+offset_bottom = 343.0
+texture_normal = ExtResource("13_4tg7o")
+texture_hover = ExtResource("13_ck88l")
+script = ExtResource("12_ukkl1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ReturnButton"]
+libraries = {
+"": SubResource("AnimationLibrary_ai037")
+}
+
+[connection signal="mouse_entered" from="ContinueButton" to="ContinueButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ContinueButton" to="ContinueButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="ContinueButton" to="ContinueButton" method="_on_pressed"]
 [connection signal="animation_finished" from="Camera2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_finished"]
+[connection signal="mouse_entered" from="ReturnButton" to="ReturnButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ReturnButton" to="ReturnButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="ReturnButton" to="ReturnButton" method="_on_pressed"]

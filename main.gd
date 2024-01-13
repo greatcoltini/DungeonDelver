@@ -2,12 +2,16 @@ extends Node2D
 
 @onready var camera = $Camera2D
 @onready var lightcover = $Camera2D/"light-cover"
-@onready var button = $TextureButton
+@onready var continueButton = $ContinueButton
 @onready var deck = $UserInterface/deck
 @onready var manager = GameManager
 @onready var player = Player
 @onready var loot_visual = $loot
 @onready var ui = $UserInterface
+@onready var torch = $AnimatedSprite2D
+
+@onready var returnButton = $ReturnButton
+
 var event
 
 # instances of objects
@@ -37,7 +41,7 @@ func generate_loot_quota():
 	loot_quota = randi_range(200, 500)	
 	
 func traverse_room():
-	button.visible = false
+	continueButton.visible = false
 	hand.visible = false;
 	player.change_property(-25, "light")
 	lightcover.modulate = Color(0, 0, 0, (100 - player.stats["light"]) / 100.5)
@@ -51,12 +55,27 @@ func enter_new():
 		event.button_pressed.connect(Callable(process_options).bind()) # could be issue here
 #		hand.visible = true
 #		button.visible = true
+	# we get here if we do not have the opportunity to continue
+	else:
+		continueButton.visible = true
+		continueButton.anim.play("disable")
+		continueButton.disabled = true
+		continueButton.tooltip_text = "You have no light remaining, you cannot continue."
+		
+		# disable the torch as well
+		torch.play("drain")
+		torch.get_child(0).queue_free()
+		
+		# play animation for return home button
+		returnButton.visible = true
+		returnButton.anim.play("spawn")
+		
 
 func process_options(option_picked):
 	if event:
 		event.queue_free()
 		hand.visible = true
-		button.visible = true
+		continueButton.visible = true
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "traverse":

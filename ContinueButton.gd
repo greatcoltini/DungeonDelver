@@ -1,5 +1,8 @@
 extends TextureButton
 
+@onready var anim = $AnimationPlayer
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,3 +24,4 @@ func _on_mouse_exited():
 
 func _on_pressed():
 	get_parent().traverse_room() # Replace with function body.
+	
