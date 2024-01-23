@@ -89,3 +89,7 @@ func burgle_loot():
 	lt.text = "+" + str(temp_loot) + "!"
 	add_child(lt)
 	
+
+
+func _on_return_button_pressed():
+	pass # Replace with function body.

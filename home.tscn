@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6jcvervsw8tf"]
+
+[ext_resource type="Texture2D" uid="uid://dk4838pyshxs7" path="res://assets/hand drawn/home-art.png" id="1_aevbo"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(573, 315)
+scale = Vector2(0.62518, 0.566969)
+texture = ExtResource("1_aevbo")
